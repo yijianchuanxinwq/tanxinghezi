@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>弹性盒子</title>
+		<style type="text/css">
+			* {
+				margin: 0px;
+				padding: 0px;
+				font-size: 0px;
+			}
+			
+			#wrap {
+				width: 300px;
+				height: 300px;
+				border: 1px solid black;
+				margin: auto;
+			}
+			
+			.content {
+				width: 300px;
+				height: 300px;
+				clear: both;
+			}
+			.box {
+				border: 1px solid black;
+				float: left;
+				box-sizing: border-box; /*是一个盒模型属性  包含其margin和border*(重点)/
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap">
+			<div class="content"></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		//		获取所要用到的对象
+		var content = document.querySelector('.content');
+		//		使用平方完成正确的弹性布局
+		var n = 1;
+		content.onclick = function() {
+			content.innerHTML='';
+			n++;
+			console.log(n);
+			var count = Math.pow(n, 2); //平方	
+			console.log(count);
+			for(var i = 0; i < count; i++) {
+				var box = document.createElement('div');
+				box.className = 'box';
+				box.style.width = (100 / n) + '%';
+				box.style.height = (100 / n) + '%';
+				content.appendChild(box);
+			}
+			console.log(box.style.width);
+		}
+	</script>
+
+</html>
